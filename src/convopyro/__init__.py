@@ -143,10 +143,9 @@ class Conversation():
 	
 from pyrogram           import Client, filters
 from pyrogram.types     import Message
-from asyncio.exceptions import TimeoutError
 
 async def listen_message(client:Client, chat_id:int, timeout=None) -> Union[Message, None]:
     try:
         return await client.listen.Message(filters.chat(chat_id), timeout=timeout)
-    except TimeoutError:
+    except:
         return None
